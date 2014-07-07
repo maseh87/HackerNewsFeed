@@ -1,7 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $http, $window) {
-
+.controller('DashCtrl', function($scope, $http, $window, $ionicLoading) {
+  $ionicLoading.show({
+      template: '<i class="icon ion-looping"></i>'
+  });
   $scope.articles;
   $http({
     method: 'GET',
@@ -10,12 +12,16 @@ angular.module('starter.controllers', [])
       "X-Mashape-Key": "ezm6j6ZDTTmshfYpcmqam21hJaXGp1taozKjsnkZZpn9dmHahi"
     }
   }).then(function(req) {
-    console.log(req);
     $scope.articles = req.data.stories;
-  });
+  })
+  .finally(function () {
+    $ionicLoading.hide();
+  })
   $scope.loadLink = function(link) {
+
     console.log(link);
-    $window.open(link, '_self');
+    $window.open(link, '_self', location='yes');
+
   };
 })
 
