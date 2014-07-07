@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $http) {
+.controller('DashCtrl', function($scope, $http, $window) {
 
   $scope.articles;
   $http({
@@ -13,6 +13,10 @@ angular.module('starter.controllers', [])
     console.log(req);
     $scope.articles = req.data.stories;
   });
+  $scope.loadLink = function(link) {
+    console.log(link);
+    $window.open(link, '_self');
+  };
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
