@@ -1,18 +1,12 @@
 angular.module('starter.services', [])
 
-.factory('Friends', function() {
+.factory('Friends', function($ionicModal) {
 
   var page = function() {
 
   };
 
   return {
-    all: function() {
-      return friends;
-    },
-    get: function(friendId) {
-      // Simple index lookup
-      return friends[friendId];
-    }
+
   }
 });

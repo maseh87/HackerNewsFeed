@@ -1,10 +1,43 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', [
+  'ionic'
+])
 
-.controller('DashCtrl', function($scope, $http, $window, $ionicLoading) {
+.controller('DashCtrl', function($scope, $http, $window, $ionicLoading, $ionicModal) {
+  $ionicModal.fromTemplateUrl('/templates/tab-account.html', function(modal) {
+    $scope.linkModal = modal;
+  }, {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+    $scope.name = 'mase';
+  });
+  $scope.openModal = function(index) {
+    $scope.modal.show();
+    $scope.index = index;
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
+
   $ionicLoading.show({
       template: '<i class="icon ion-looping"></i>'
   });
+
   $scope.articles;
+
   $http({
     method: 'GET',
     url: "https://community-hnify.p.mashape.com/get/best",
@@ -12,6 +45,7 @@ angular.module('starter.controllers', [])
       "X-Mashape-Key": "ezm6j6ZDTTmshfYpcmqam21hJaXGp1taozKjsnkZZpn9dmHahi"
     }
   }).then(function(req) {
+    console.log(req.data.stories);
     $scope.articles = req.data.stories;
   })
   .finally(function () {
@@ -19,9 +53,18 @@ angular.module('starter.controllers', [])
   });
   $scope.loadLink = function(link) {
     console.log(link);
-    $window.open(link, '_self', location='yes');
-
+    // $http({
+    // method: 'GET',
+    // url: link,
+    // headers: {
+    //   "X-Mashape-Key": "ezm6j6ZDTTmshfYpcmqam21hJaXGp1taozKjsnkZZpn9dmHahi"
+    // }
+    // }).then(function(req) {
+    //   console.log(req.data);
+    // })
   };
+
+
 })
 
 .controller('FriendsCtrl', function($scope, $http, $ionicLoading, Friends) {
@@ -41,11 +84,4 @@ angular.module('starter.controllers', [])
   .finally(function () {
     $ionicLoading.hide();
   });
-})
-
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
-})
-
-.controller('AccountCtrl', function($scope) {
 });

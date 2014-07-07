@@ -1,5 +1,7 @@
 <ion-view title="Top Stories">
   <ion-content class="has-header padding">
-    <ion-item ng-repeat='article in articles' on-tap="loadLink('{{ article.link }}')">{{ article.title }}</ion-item>
+    <ion-item ng-repeat='article in articles' on-tap="openModal($index)">
+    {{ article.title }}
+    </ion-item>
   </ion-content>
 </ion-view>
