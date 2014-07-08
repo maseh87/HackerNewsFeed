@@ -23,23 +23,6 @@ angular.module('starter.controllers', [
       iframe.hide();
     });
   };
-
-  $scope.cards = Array.prototype.slice.call($scope.articles, 0, 0);
-
-  $scope.cardSwiped = function(index) {
-    $scope.addCard();
-  };
-
-  $scope.cardDestroyed = function(index) {
-    $scope.cards.splice(index, 1);
-  };
-
-  $scope.addCard = function() {
-    var newCard = $scope.articles[Math.floor(Math.random() * $scope.articles.length)];
-    newCard.id = Math.random();
-    $scope.cards.push(angular.extend({}, newCard));
-  };
-
 })
 
 .factory('ArticleFactory', function($http) {

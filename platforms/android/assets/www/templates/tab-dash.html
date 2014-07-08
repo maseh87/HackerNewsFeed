@@ -6,18 +6,18 @@
     </label>
     <button class="button button-clear">Cancel</button>
   </div>
-  <ion-content padding="true" header-shrink scroll-event-interval="5">
-    <card animation="slide-in-up">
-      <div class="card" ng-repeat="article in articles | filter:searchText"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)" >
-        <div>
-          <h2>
-            <strong>{{ article.title }}</strong>
-          </h2>
-          <div class="button-bar">
-            <button class="button button-clear button-positive">    Article By: {{article.submitter}}
-            </button>
+    <ion-content padding="true" header-shrink scroll-event-interval="5">
+      <card>
+        <div class="card" ng-repeat="article in articles | filter:searchText"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)" >
+          <div>
+            <h2>
+              <strong>{{ article.title }}</strong>
+            </h2>
+            <div class="button-bar">
+              <button class="button button-clear button-positive">    Article By: {{article.submitter}}
+              </button>
+            </div>
           </div>
-        </div>
-    </card>
-  </ion-content>
+      </card>
+    </ion-content>
 </ion-view>
