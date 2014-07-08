@@ -3,7 +3,7 @@ angular.module('starter.controllers', [
   'ionic',
 ])
 
-.controller('DashCtrl', function($scope, $window, $ionicLoading, articles, $ionicPlatform, $ionicModal) {
+.controller('DashCtrl', function($scope, $window, $ionicScrollDelegate, $ionicLoading, articles, $ionicPlatform, $ionicModal) {
 
   $scope.modalIndex;
   $scope.points;
@@ -90,6 +90,9 @@ angular.module('starter.controllers', [
         iframe.hide();
       });
     }
+  };
+  $scope.scrollUp = function() {
+    $ionicScrollDelegate.scrollTop();
   };
 })
 

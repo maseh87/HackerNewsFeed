@@ -132,3 +132,7 @@ h2 {
 .scroll-content{
   top:0 !important
 }
+
+.go-back {
+  color: blue;
+}
