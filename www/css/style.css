@@ -4,10 +4,9 @@
 
 body { background:#222;  }
 
-input {
-
+ion-content {
+  padding-top: 65px;
 }
-
 
 main {
   display:block;
