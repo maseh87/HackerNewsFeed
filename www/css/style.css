@@ -124,7 +124,7 @@ h2 {
   font-weight:400;
 }
 
-.fake-statusbar {
+/*.fake-statusbar {
   height: 20px;
   max-height: 20px;
   font-size: 12px;
@@ -145,7 +145,7 @@ h2 {
 }
 .fake-statusbar .pull-left { float: left; }
 .fake-statusbar .pull-right { float: right; }
-
+*/
 .bar-header {
   height: 64px !important;
 }

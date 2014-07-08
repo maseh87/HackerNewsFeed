@@ -8,7 +8,6 @@
       Cancel
     </button>
   </div>
-  <fake-statusbar></fake-statusbar>
   <ion-content padding="true" header-shrink scroll-event-interval="5">
     <swipe-cards animation="slide-in-up">
       <div class="card" ng-repeat="article in articles | filter:searchText"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)" >
