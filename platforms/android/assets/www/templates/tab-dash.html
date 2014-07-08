@@ -4,22 +4,20 @@
       <i class="icon ion-ios7-search placeholder-icon"></i>
       <input type="search" placeholder="Search" ng-model="searchText">
     </label>
-    <button class="button button-clear">
-      Cancel
-    </button>
+    <button class="button button-clear">Cancel</button>
   </div>
-  <fake-statusbar></fake-statusbar>
   <ion-content padding="true" header-shrink scroll-event-interval="5">
-    <swipe-cards animation="slide-in-up">
+    <card animation="slide-in-up">
       <div class="card" ng-repeat="article in articles | filter:searchText"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)" >
         <div>
           <h2>
-            {{ article.title }}
+            <strong>{{ article.title }}</strong>
           </h2>
           <div class="button-bar">
-            <button class="button button-clear button-positive" ng-click="goAway()">Article By: {{article.submitter}}</button>
+            <button class="button button-clear button-positive">    Article By: {{article.submitter}}
+            </button>
+          </div>
         </div>
-      </di>
-    </swipe-cards>
+    </card>
   </ion-content>
 </ion-view>

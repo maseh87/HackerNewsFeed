@@ -1,6 +1,4 @@
 angular.module('starter.controllers', [
-  'ngAnimate',
-  'fx.animations',
   'ionic.contrib.ui.cards',
   'ionic'
 ])
@@ -61,13 +59,6 @@ angular.module('starter.controllers', [
   };
 })
 
-.directive('fakeStatusbar', function() {
-  return {
-    restrict: 'E',
-    replace: true,
-    template: '<div class="fake-statusbar"><div class="pull-left">Carrier</div><div class="time">3:30 PM</div><div class="pull-right">50%</div></div>'
-  }
-})
 .directive('headerShrink', function($document) {
   var fadeAmt;
 
