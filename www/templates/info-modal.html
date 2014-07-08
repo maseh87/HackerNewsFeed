@@ -7,10 +7,6 @@
       <i class="icon ion-arrow-graph-up-right"></i>
       Rank {{ rank }}
     </div>
-    <a class="item item-icon-left" on-tap="openLink($index, 'comments')">
-      <i class="icon ion-chatbubble-working"></i>
-      Comments Link
-    </a>
     <div class="item item-icon-left">
       <i class="icon ion-stats-bars"></i>
       {{ points }} Points
@@ -19,6 +15,10 @@
       <i class="icon ion-clock"></i>
       Posted {{ time }}
     </div>
+    <a class="item item-icon-left" on-tap="openLink($index, 'comments')">
+      <i class="icon ion-chatbubble-working"></i>
+      Comments Link
+    </a>
     <div class="item item-divider">
       User Details
     </div>
