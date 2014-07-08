@@ -2,7 +2,9 @@ angular.module('starter.controllers', [
   'ionic'
 ])
 
-.controller('DashCtrl', function($scope, $http, $window, $ionicLoading, $ionicModal) {
+.controller('DashCtrl', function($scope, $http, $window, $ionicLoading, $ionicModal, $sce) {
+
+
   $ionicModal.fromTemplateUrl('/templates/tab-account.html', function(modal) {
     $scope.linkModal = modal;
   }, {
@@ -14,7 +16,9 @@ angular.module('starter.controllers', [
   });
   $scope.openModal = function(index) {
     $scope.modal.show();
-    $scope.index = index;
+    // var link = $scope.articles[index].comments_link;
+    // console.log(link)
+    // $scope.article =  link;
   };
   $scope.closeModal = function() {
     $scope.modal.hide();
@@ -40,28 +44,15 @@ angular.module('starter.controllers', [
 
   $http({
     method: 'GET',
-    url: "https://community-hnify.p.mashape.com/get/best",
-    headers: {
-      "X-Mashape-Key": "ezm6j6ZDTTmshfYpcmqam21hJaXGp1taozKjsnkZZpn9dmHahi"
-    }
+    url: "http://localhost:3000/articles"
   }).then(function(req) {
-    console.log(req.data.stories);
     $scope.articles = req.data.stories;
   })
   .finally(function () {
     $ionicLoading.hide();
   });
   $scope.loadLink = function(link) {
-    console.log(link);
-    // $http({
-    // method: 'GET',
-    // url: link,
-    // headers: {
-    //   "X-Mashape-Key": "ezm6j6ZDTTmshfYpcmqam21hJaXGp1taozKjsnkZZpn9dmHahi"
-    // }
-    // }).then(function(req) {
-    //   console.log(req.data);
-    // })
+
   };
 
 

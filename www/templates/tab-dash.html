@@ -1,7 +1,35 @@
 <ion-view title="Top Stories">
   <ion-content class="has-header padding">
-    <ion-item ng-repeat='article in articles' on-tap="openModal($index)">
-    {{ article.title }}
-    </ion-item>
+   <!--  <div class="list card" ng-repeat='article in articles' on-tap="openModal($index)">
+      <div item item-head>
+        <p>{{ article.submitter }} ({{ article.domain }})</p>
+      </div>
+      <div item item-body>
+        {{ article.title }}
+        <p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Comments</a>
+        </p>
+      </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Like
+          </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+
+    </div> -->
+
+    <a ui-sref="tab.friends">Yo</a>
+
+
   </ion-content>
 </ion-view>

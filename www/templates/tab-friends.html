@@ -1,9 +1,9 @@
 <ion-view title="Most Recent">
-  <ion-content class="has-header">
-    <ion-list>
-      <ion-item ng-repeat="article in articles" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
+  <ion-content class="has-header padding">
+      <!-- <ion-item ng-repeat="article in articles">
         {{article.title}}
-      </ion-item>
-    </ion-list>
+      </ion-item> -->
+      <div ng-include="'http://localhost:3000/test'"></div>
   </ion-content>
+
 </ion-view>
