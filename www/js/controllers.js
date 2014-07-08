@@ -1,6 +1,5 @@
 angular.module('starter.controllers', [
   'ngAnimate',
-  'fx.animations',
   'ionic.contrib.ui.cards',
   'ionic'
 ])
