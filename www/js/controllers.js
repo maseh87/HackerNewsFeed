@@ -2,63 +2,26 @@ angular.module('starter.controllers', [
   'ionic'
 ])
 
-.controller('DashCtrl', function($scope, $http, $window, $ionicLoading, $ionicModal, $sce) {
+.controller('DashCtrl', function($scope, $window, $ionicLoading, articles, $ionicPlatform) {
 
-
-  $ionicModal.fromTemplateUrl('/templates/tab-account.html', function(modal) {
-    $scope.linkModal = modal;
-  }, {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-    $scope.name = 'mase';
-  });
-  $scope.openModal = function(index) {
-    $scope.modal.show();
-    var id = $scope.articles[index].value.article_id;
-    $scope.article =  'http://localhost:3000/article/'+ id;
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-  //Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function() {
-    // Execute action
-  });
-
-  $ionicLoading.show({
+  $scope.articles = articles.stories;
+  $scope.openLink = function(index) {
+    var article = $scope.articles[index];
+    var iframe = $window.open(article.link, '_blank', 'location=no,hidden=yes');
+    $ionicLoading.show({
       template: '<i class="icon ion-looping"></i>'
-  });
+    });
 
-  $scope.articles;
-
-  $http({
-    method: 'GET',
-    url: "http://localhost:3000/articles",
-    timeout: 100000
-  }).then(function(req) {
-    $scope.articles = req.data;
-    console.log(req.data);
-  })
-  .catch(function (error) {
-    console.error(error);
-  })
-  .finally(function () {
-    $ionicLoading.hide();
-  });
-  $scope.loadLink = function(link) {
-
+    iframe.addEventListener('loadstop', function() {
+      iframe.show();
+      $ionicLoading.hide();
+    });
+    $ionicPlatform.onHardwareBackButton(function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      iframe.hide();
+    });
   };
-
 
 })
 
@@ -79,4 +42,21 @@ angular.module('starter.controllers', [
   .finally(function () {
     $ionicLoading.hide();
   });
+})
+
+.factory('ArticleFactory', function($http) {
+  return {
+    getArticles: function() {
+      return $http({
+        method: "GET",
+        url: "https://community-hnify.p.mashape.com/get/best",
+        headers: {
+          "X-Mashape-Key": "ezm6j6ZDTTmshfYpcmqam21hJaXGp1taozKjsnkZZpn9dmHahi"
+        }
+      })
+      .then(function(response) {
+        return response.data;
+      });
+    }
+  };
 });

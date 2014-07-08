@@ -1,35 +1,12 @@
 <ion-view title="Top Stories">
-  <ion-content class="has-header padding">
-    <div class="list card" ng-repeat='article in articles' on-tap="openModal($index)">
-      <div item item-head>
-        <p>{{ article.value.submitter }}</p>
-      </div>
+  <ion-content class="has-header padding" overflow-scroll="true">
+    <div class="list card" ng-repeat='article in articles' on-tap="openLink($index)">
       <div item item-body>
-        {{ article.value.title }}
-        <p>
-          <a href="#" class="subdued">1 Like</a>
-          <a href="#" class="subdued">5 Comments</a>
-        </p>
+        {{ article.title }}
       </div>
-        <div class="item tabs tabs-secondary tabs-icon-left">
-          <a class="tab-item" href="#">
-          <i class="icon ion-thumbsup"></i>
-          Like
-          </a>
-        <a class="tab-item" href="#">
-          <i class="icon ion-chatbox"></i>
-          Comment
-        </a>
-        <a class="tab-item" href="#">
-          <i class="icon ion-share"></i>
-          Share
-        </a>
+      <div item>
+        <p>by {{ article.submitter }}</p>
       </div>
-
     </div>
-
-    <a ui-sref="tab.friends">Yo</a>
-
-
   </ion-content>
 </ion-view>
