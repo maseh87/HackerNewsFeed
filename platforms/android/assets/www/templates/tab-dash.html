@@ -1,21 +1,24 @@
-<ion-view title="Top Stories">
-  <ion-content class="has-header padding" overflow-scroll="true">
-    <ion-pane>
-      <swipe-cards>
-        <swipe-card on-swipe="cardSwiped()" id="start-card">
-          Swipe down for todays Articles
-        </swipe-card>
-        <swipe-card ng-repeat="article in articles"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)">
-          <div>
-            <div >
-              {{ article.title }}
-            </div>
-            <div class="button-bar">
-              <button class="button button-clear button-positive" ng-click="goAway()">Article By: {{article.submitter}}</button>
-          </div>
-        </swipe-card>
-      </swipe-cards>
-    </ion-pane>
+<ion-view>
+  <div class="bar bar-header bar-positive item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+      <input type="search" placeholder="Search" ng-model="searchText">
+    </label>
+    <button class="button button-clear">
+      Cancel
+    </button>
+  </div>
+  <ion-content padding="true" overflow-scroll="true">
+    <swipe-cards animation="slide-in-up">
+      <div class="card" ng-repeat="article in articles | filter:searchText"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)" >
+        <div>
+          <h2>
+            {{ article.title }}
+          </h2>
+          <div class="button-bar">
+            <button class="button button-clear button-positive" ng-click="goAway()">Article By: {{article.submitter}}</button>
+        </div>
+      </di>
+    </swipe-cards>
   </ion-content>
 </ion-view>
-<!-- on-tap="openLink($index)" -->
