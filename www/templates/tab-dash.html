@@ -1,11 +1,11 @@
 <ion-view title="Top Stories">
   <ion-content class="has-header padding">
-   <!--  <div class="list card" ng-repeat='article in articles' on-tap="openModal($index)">
+    <div class="list card" ng-repeat='article in articles' on-tap="openModal($index)">
       <div item item-head>
-        <p>{{ article.submitter }} ({{ article.domain }})</p>
+        <p>{{ article.value.submitter }}</p>
       </div>
       <div item item-body>
-        {{ article.title }}
+        {{ article.value.title }}
         <p>
           <a href="#" class="subdued">1 Like</a>
           <a href="#" class="subdued">5 Comments</a>
@@ -26,7 +26,7 @@
         </a>
       </div>
 
-    </div> -->
+    </div>
 
     <a ui-sref="tab.friends">Yo</a>
 

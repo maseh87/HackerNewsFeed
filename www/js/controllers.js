@@ -16,9 +16,8 @@ angular.module('starter.controllers', [
   });
   $scope.openModal = function(index) {
     $scope.modal.show();
-    // var link = $scope.articles[index].comments_link;
-    // console.log(link)
-    // $scope.article =  link;
+    var id = $scope.articles[index].value.article_id;
+    $scope.article =  'http://localhost:3000/article/'+ id;
   };
   $scope.closeModal = function() {
     $scope.modal.hide();
@@ -44,9 +43,14 @@ angular.module('starter.controllers', [
 
   $http({
     method: 'GET',
-    url: "http://localhost:3000/articles"
+    url: "http://localhost:3000/articles",
+    timeout: 100000
   }).then(function(req) {
-    $scope.articles = req.data.stories;
+    $scope.articles = req.data;
+    console.log(req.data);
+  })
+  .catch(function (error) {
+    console.error(error);
   })
   .finally(function () {
     $ionicLoading.hide();
