@@ -8,6 +8,7 @@ angular.module('starter.controllers', [
   $scope.modalIndex;
   $scope.points;
   $scope.time;
+  $scope.rank;
 
   $ionicModal.fromTemplateUrl('templates/info-modal.html', {
     scope: $scope,
@@ -17,9 +18,11 @@ angular.module('starter.controllers', [
   });
 
   $scope.openModal = function(index) {
+    var blog = $scope.articles[index];
     $scope.modalIndex = index;
-    $scope.points = $scope.articles[index].points;
-    $scope.time = $scope.articles[index].published_time;
+    $scope.points = blog.points;
+    $scope.time = blog.published_time;
+    $scope.rank = blog.rank;
     $scope.modal.show();
   };
   $scope.closeModal = function() {
