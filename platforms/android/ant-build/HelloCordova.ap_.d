@@ -175,6 +175,7 @@
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js \
+/Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/templates/info-modal.html \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/templates/tab-dash.html \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/templates/tabs.html \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/ant-build/AndroidManifest.xml \

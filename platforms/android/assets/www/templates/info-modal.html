@@ -27,10 +27,9 @@
       {{ user }}
     </div>
     <div class="item item-icon-left">
-      <a on-tap="openLink($index, 'user')" class="icon ion-more"> </a>
+      <a on-tap="openLink($index, 'user')"> <i class="icon ion-more"></i> </a>
       User Profile
     </div>
   </div>
-  <button on-tap="closeModal()" class="icon ion-checkmark">
-  </button>
+  <button class="button button-assertive" on-tap="closeModal()">Close</button>
 </div>
