@@ -23,8 +23,12 @@
       User Details
     </div>
     <div class="item item-icon-left">
-    <i class="icon ion-person-stalker"></i>
-    {{ user }}
+      <i class="icon ion-person-stalker"></i>
+      {{ user }}
+    </div>
+    <div class="item item-icon-left">
+      <a on-tap="openLink($index, 'user')"> <i class="icon ion-more"></i> </a>
+      User Profile
     </div>
   </div>
   <button class="button button-assertive" on-tap="closeModal()">Close</button>

@@ -10,6 +10,7 @@ angular.module('starter.controllers', [
   $scope.time;
   $scope.rank;
   $scope.user;
+  $scope.userLink;
 
   $ionicModal.fromTemplateUrl('templates/info-modal.html', {
     scope: $scope,
@@ -25,6 +26,7 @@ angular.module('starter.controllers', [
     $scope.time = blog.published_time;
     $scope.rank = blog.rank;
     $scope.user = blog.submitter;
+    $scope.userLink = blog.submitter_profile;
     $scope.modal.show();
   };
   $scope.closeModal = function() {
@@ -36,7 +38,8 @@ angular.module('starter.controllers', [
 
   $scope.openLink = function(index, string) {
     var article = $scope.articles[index];
-    if(string !== 'comments') {
+    console.log(string)
+    if(string !== 'comments' && string !== 'user') {
       var iframe = $window.open(article.link, '_blank', 'location=no,hidden=yes');
       $ionicLoading.show({
         template: '<i class="icon ion-looping"></i>'
@@ -52,7 +55,7 @@ angular.module('starter.controllers', [
         e.stopPropagation();
         iframe.hide();
       });
-    } else {
+    } else if(string === 'comments') {
       var commentLink = articles.stories[$scope.modalIndex].comments_link;
       var iframe = $window.open(commentLink, '_blank', 'location=no,hidden=yes');
       $ionicLoading.show({
@@ -69,9 +72,25 @@ angular.module('starter.controllers', [
         e.stopPropagation();
         iframe.hide();
       });
+    } else {
+      // var userLink = articles.stories[$scope.modalIndex].comments_link;
+      var iframe = $window.open($scope.userLink, '_blank', 'location=no,hidden=yes');
+      $ionicLoading.show({
+        template: '<i class="icon ion-looping"></i>'
+      });
+
+      iframe.addEventListener('loadstop', function() {
+        iframe.show();
+        $ionicLoading.hide();
+      });
+
+      $ionicPlatform.onHardwareBackButton(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        iframe.hide();
+      });
     }
   };
-
 })
 
 .factory('ArticleFactory', function($http) {
