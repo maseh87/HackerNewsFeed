@@ -1,12 +1,24 @@
-<ion-view title="Top Stories">
-  <ion-content class="has-header padding" overflow-scroll="true">
-    <div class="list card" ng-repeat='article in articles' on-tap="openLink($index)">
-      <div item item-body>
-        {{ article.title }}
-      </div>
-      <div item>
-        <p>by {{ article.submitter }}</p>
-      </div>
-    </div>
+<ion-view>
+  <div class="bar bar-header bar-positive item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+      <input type="search" placeholder="Search" ng-model="searchText">
+    </label>
+    <button class="button button-clear">
+      Cancel
+    </button>
+  </div>
+  <ion-content padding="true" overflow-scroll="true">
+    <swipe-cards>
+      <div class="card" ng-repeat="article in articles | filter:searchText"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)">
+        <div>
+          <h2>
+            {{ article.title }}
+          </h2>
+          <div class="button-bar">
+            <button class="button button-clear button-positive" ng-click="goAway()">Article By: {{article.submitter}}</button>
+        </div>
+      </di>
+    </swipe-cards>
   </ion-content>
 </ion-view>

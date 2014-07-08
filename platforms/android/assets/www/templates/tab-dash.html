@@ -1,12 +1,21 @@
 <ion-view title="Top Stories">
   <ion-content class="has-header padding" overflow-scroll="true">
-    <div class="list card" ng-repeat='article in articles' on-tap="openLink($index)">
-      <div item item-body>
-        {{ article.title }}
-      </div>
-      <div item>
-        <p>by {{ article.submitter }}</p>
-      </div>
-    </div>
+    <ion-pane>
+      <swipe-cards>
+        <swipe-card on-swipe="cardSwiped()" id="start-card">
+          Swipe down for todays Articles
+        </swipe-card>
+        <swipe-card ng-repeat="article in articles"  on-tap="openLink($index)" on-swipe="cardSwiped($index)" on-destroy="cardDestroyed($index)">
+          <div>
+            <div >
+              {{ article.title }}
+            </div>
+            <div class="button-bar">
+              <button class="button button-clear button-positive" ng-click="goAway()">Article By: {{article.submitter}}</button>
+          </div>
+        </swipe-card>
+      </swipe-cards>
+    </ion-pane>
   </ion-content>
 </ion-view>
+<!-- on-tap="openLink($index)" -->

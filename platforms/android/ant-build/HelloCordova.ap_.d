@@ -67,6 +67,7 @@
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/img/ionic.png \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/js/app.js \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/js/controllers.js \
+/Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/js/ionic.cards.js \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/js/services.js \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/lib/ionic \
 /Users/mason/Desktop/hr/HackerNewsApp/myApp/platforms/android/assets/www/lib/ionic/css \
