@@ -9,6 +9,7 @@ angular.module('starter.controllers', [
   $scope.points;
   $scope.time;
   $scope.rank;
+  $scope.user;
 
   $ionicModal.fromTemplateUrl('templates/info-modal.html', {
     scope: $scope,
@@ -23,6 +24,7 @@ angular.module('starter.controllers', [
     $scope.points = blog.points;
     $scope.time = blog.published_time;
     $scope.rank = blog.rank;
+    $scope.user = blog.submitter;
     $scope.modal.show();
   };
   $scope.closeModal = function() {
