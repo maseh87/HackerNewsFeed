@@ -12,12 +12,13 @@
           <h2 class="head" on-tap="openLink($index)">
           {{ article.title }}
           </h2>
-          <!-- <div class="item"> -->
             <div class="button-bar">
               <button class="button button-clear button-positive" on-tap="openModal($index)"> <i class="icon ion-android-information"></i> Article Details
               </button>
             </div>
-          <!-- </div> -->
+          <p class="footer">
+            Posted: {{article.published_time}}
+          </p>
         </div>
       </card>
     </ion-content>

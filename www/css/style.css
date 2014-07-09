@@ -11,6 +11,10 @@ ion-content {
   background-color: #ecf0f1
 }
 
+.item-input-inset {
+  padding: 30px, 30px;
+}
+
 home-tab {
   background-color: #ecf0f1;
 }
