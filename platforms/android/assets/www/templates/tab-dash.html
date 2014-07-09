@@ -9,7 +9,7 @@
     <ion-content padding="true" overflow-scroll="true" >
       <card>
         <div class="card " ng-repeat="article in articles | filter:searchText" >
-          <h2 on-tap="openLink($index)">
+          <h2 class="head" on-tap="openLink($index)">
           {{ article.title }}
           </h2>
           <!-- <div class="item"> -->
