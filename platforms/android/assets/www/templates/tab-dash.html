@@ -9,15 +9,16 @@
     <ion-content padding="true" overflow-scroll="true" >
       <card>
         <div class="card " ng-repeat="article in articles | filter:searchText" >
-          <div>
-            <h2 on-tap="openLink($index)">
-            {{ article.title }}
-            </h2>
+          <h2 on-tap="openLink($index)">
+          {{ article.title }}
+          </h2>
+          <!-- <div class="item"> -->
             <div class="button-bar">
-              <button class="button button-clear button-positive" on-tap="openModal($index)"> <i class="icon ion-android-information"></i> More Details
+              <button class="button button-clear button-positive" on-tap="openModal($index)"> <i class="icon ion-android-information"></i> Article Details
               </button>
             </div>
-          </div>
+          <!-- </div> -->
+        </div>
       </card>
     </ion-content>
 </ion-view>

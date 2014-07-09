@@ -29,7 +29,7 @@ home-tab {
 .card {
   font-family: 'Philosopher', sans-serif;
   padding:1.5rem;
-  box-shadow:0px 2px 3px #2c3e50;
+  box-shadow:0px 2px 5px grey;
   background:white;
   margin:0 1rem 1rem;
   border-radius:3px;
