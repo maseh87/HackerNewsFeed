@@ -7,10 +7,6 @@
       <i class="icon ion-arrow-graph-up-right"></i>
       Rank {{ rank }}
     </div>
-    <a class="item item-icon-left" on-tap="openLink($index, 'comments')">
-      <i class="icon ion-chatbubble-working"></i>
-      Comments Link
-    </a>
     <div class="item item-icon-left">
       <i class="icon ion-stats-bars"></i>
       {{ points }} Points
@@ -19,6 +15,10 @@
       <i class="icon ion-clock"></i>
       Posted {{ time }}
     </div>
+    <a class="item item-icon-left" on-tap="openLink($index, 'comments')">
+      <i class="icon ion-chatbubble-working"></i>
+      Comments Link
+    </a>
     <div class="item item-divider">
       User Details
     </div>
@@ -27,9 +27,19 @@
       {{ user }}
     </div>
     <div class="item item-icon-left">
-      <a on-tap="openLink($index, 'user')"> <i class="icon ion-more"></i> </a>
+      <a on-tap="openLink($index, 'user')" class="icon ion-more"> </a>
       User Profile
     </div>
+    <div class="item item-divider" on-tap="closeModal()">
+      <a class="go-back"> Go Back </a>
+    </div>
   </div>
-  <button class="button button-assertive" on-tap="closeModal()">Close</button>
 </div>
+
+
+
+
+
+
+
+
