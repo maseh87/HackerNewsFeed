@@ -11,7 +11,7 @@
         <div class="card " ng-repeat="article in articles | filter:searchText" >
           <div>
             <h2 on-tap="openLink($index)">
-              <strong>{{ article.title }}</strong>
+            {{ article.title }}
             </h2>
             <div class="button-bar">
               <button class="button button-clear button-positive" on-tap="openModal($index)"> <i class="icon ion-android-information"></i> More Details
